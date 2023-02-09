@@ -71,9 +71,9 @@ export const StyledTooltip: FC<Props> = ({
           ref={setPopperElement}
           role="tooltip"
           id="tooltip-message"
-          className={`transition-all  duration-300 ${
-            isVisible ? `opacity-100` : `opacity-0`
-          } ${isVisible ? "visible" : "invisible"}`}
+          className={` ${isVisible ? `opacity-100` : `opacity-0`} ${
+            isVisible ? "visible" : "invisible"
+          }`}
           style={styles.popper}
           {...attributes.popper}
         >

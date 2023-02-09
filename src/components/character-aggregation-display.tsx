@@ -3,6 +3,7 @@ import { GenericAggregation } from "../__generated__/resolvers-types";
 import { useEffect } from "react";
 import { FixedSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
+import { StyledTooltip } from "./styled-tooltip";
 
 export default function CharacterAggreationDisplay({
   aggregation,
@@ -49,19 +50,27 @@ export default function CharacterAggreationDisplay({
     <div
       key={key}
       style={style}
-      className="grid grid-cols-2 items-center pr-3"
+      className="grid grid-cols-skillSidebar  items-center hover:bg-skin-primary text-xs space-x-1 pr-2 cursor-pointer"
       onClick={() => {
         onSelectionChanged?.(mappedRow[index]);
       }}
     >
       <div
-        className={
-          includedRows.includes(mappedRow[index].key) ? "text-green-400" : ""
-        }
+        className={` truncate capitalize ${
+          includedRows.includes(mappedRow[index].key)
+            ? "bg-skin-primary  text-skin-accent"
+            : ""
+        }`}
       >
-        {mappedRow[index].key}
+        <StyledTooltip
+          texts={[`${mappedRow[index].key}`]}
+          placement="left"
+          className="capitalize mr-2"
+        >
+          <li className="list-none truncate">{mappedRow[index].key}</li>
+        </StyledTooltip>
       </div>
-      <div className={"text-right"}>
+      <div className={"text-right "}>
         {+(((mappedRow[index]?.value ?? 0) / totalMatches) * 100).toFixed(2)}%
       </div>
     </div>
@@ -75,7 +84,7 @@ export default function CharacterAggreationDisplay({
             <>
               <div
                 key={e.key}
-                className="text-red-400"
+                className="bg-red-800 text-skin-base text-xs space-x-1 pr-2 cursor-pointer capitalize "
                 onClick={() => {
                   onSelectionChanged({ key: e, value: 0 });
                 }}
@@ -85,14 +94,15 @@ export default function CharacterAggreationDisplay({
             </>
           ))}
         </div>
-        <div className="flex flex-col flex-1">
+
+        <div className="flex flex-col flex-1 ">
           <AutoSizer>
             {({ height, width }) => (
               <List
                 width={width}
                 height={height}
                 itemCount={mappedRow.length}
-                itemSize={60}
+                itemSize={20}
               >
                 {Row}
               </List>

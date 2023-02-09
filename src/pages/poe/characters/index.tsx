@@ -16,6 +16,8 @@ import {
   CharacterSnapshotSearch,
   CharacterSnapshotUniqueAggregationKeysResponse,
 } from "../../../__generated__/resolvers-types";
+import { StyledTooltip } from "../../../components/styled-tooltip";
+import Image from "next/image";
 
 export default function Characters() {
   const router = useRouter();
@@ -180,7 +182,7 @@ export default function Characters() {
   return (
     <>
       <div className="flex flex-row space-x-2">
-        <div className="flex flex-col space-y-2 w-1/6">
+        <div className="flex flex-col space-y-2 w-1/5">
           <StyledCard title={"Search"}>
             <StyledInput
               value={localSearchString}
@@ -190,7 +192,8 @@ export default function Characters() {
               placeholder="Search Filters..."
             />
           </StyledCard>
-          <StyledCard title="Skills" className="h-[400px]">
+
+          <StyledCard title="Skills" className="h-[400px] ">
             <CharacterAggreationDisplay
               aggregation={aggregationSearchResponse?.mainSkillAggreagtion}
               onSelectionChanged={(mainSkill) => {
@@ -207,6 +210,7 @@ export default function Characters() {
               localSearchString={localSearchString}
             />
           </StyledCard>
+
           <StyledCard title="Class" className="h-[400px]">
             <CharacterAggreationDisplay
               aggregation={aggregationSearchResponse?.characterClassAggregation}
@@ -272,16 +276,35 @@ export default function Characters() {
             <tbody>
               {searchResponse.snapshots.map((snapshot) => (
                 <>
-                  <tr>
+                  <tr className=" ">
                     <td>
                       <Link href={`/poe/character/${snapshot.characterId}`}>
                         {snapshot?.name}
                       </Link>
                     </td>
-                    <td>{snapshot.mainSkillKey}</td>
+                    <div className="">
+                      <td className="capitalize text-center">
+                        {snapshot.mainSkillKey}
+                      </td>
+                    </div>
                     <td>{snapshot.life}</td>
                     <td>{snapshot.energyShield}</td>
-                    <td>{snapshot.characterClass}</td>
+                    <td>
+                      {/* {snapshot.characterClass} */}
+                      <StyledTooltip
+                        texts={[`${snapshot.characterClass}`]}
+                        placement="left"
+                      >
+                        <Image
+                          src={`/images/classes/${snapshot.characterClass}_avatar.png`}
+                          alt={snapshot.characterClass}
+                          width={39}
+                          height={30}
+
+                          // src={`../../../../common/images/classes/${snapshot.characterClass}_avatar.png`}
+                        />
+                      </StyledTooltip>
+                    </td>
                     <td>{snapshot.level}</td>
                   </tr>
                 </>

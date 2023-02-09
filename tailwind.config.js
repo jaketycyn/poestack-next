@@ -68,6 +68,13 @@ module.exports = {
         "theme-color-3": "#1054A1",
         "theme-color-4": "#99A6DB",
       },
+      gridTemplateColumns: {
+        // 2 column grid with more space in 1st column
+        skillSidebar: "6fr 1fr ",
+
+        // Complex site-specific column configuration
+        footer: "200px minmax(900px, 1fr) 100px",
+      },
     },
   },
 };
