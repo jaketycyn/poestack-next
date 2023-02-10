@@ -16,12 +16,7 @@ import {
   CharacterSnapshotSearch,
   CharacterSnapshotUniqueAggregationKeysResponse,
 } from "../../../__generated__/resolvers-types";
-<<<<<<< HEAD
 import { GeneralUtils } from "../../../utils/general-util";
-=======
-import { StyledTooltip } from "../../../components/styled-tooltip";
-import Image from "next/image";
->>>>>>> 56d7ef7bdc3157f96b09d7f2953ed775f5d04d8b
 
 export default function Characters() {
   const router = useRouter();
@@ -186,11 +181,7 @@ export default function Characters() {
   return (
     <>
       <div className="flex flex-row space-x-2">
-<<<<<<< HEAD
         <div className="flex flex-col space-y-2 w-1/6 lg:w-1/5">
-=======
-        <div className="flex flex-col space-y-2 w-1/5">
->>>>>>> 56d7ef7bdc3157f96b09d7f2953ed775f5d04d8b
           <StyledCard title={"Search"}>
             <StyledInput
               value={localSearchString}
@@ -200,8 +191,7 @@ export default function Characters() {
               placeholder="Search Filters..."
             />
           </StyledCard>
-
-          <StyledCard title="Skills" className="h-[400px] ">
+          <StyledCard title="Skills" className="h-[400px]">
             <CharacterAggreationDisplay
               aggregation={aggregationSearchResponse?.mainSkillAggreagtion}
               onSelectionChanged={(mainSkill) => {
@@ -218,7 +208,6 @@ export default function Characters() {
               localSearchString={localSearchString}
             />
           </StyledCard>
-
           <StyledCard title="Class" className="h-[400px]">
             <CharacterAggreationDisplay
               aggregation={aggregationSearchResponse?.characterClassAggregation}
@@ -284,39 +273,16 @@ export default function Characters() {
             <tbody>
               {searchResponse.snapshots.map((snapshot) => (
                 <>
-                  <tr className=" ">
+                  <tr>
                     <td>
                       <Link href={`/poe/character/${snapshot.characterId}`}>
                         {snapshot?.name}
                       </Link>
                     </td>
-<<<<<<< HEAD
                     <td>{GeneralUtils.capitalize(snapshot.mainSkillKey)}</td>
-=======
-                    <div className="">
-                      <td className="capitalize text-center">
-                        {snapshot.mainSkillKey}
-                      </td>
-                    </div>
->>>>>>> 56d7ef7bdc3157f96b09d7f2953ed775f5d04d8b
                     <td>{snapshot.life}</td>
                     <td>{snapshot.energyShield}</td>
-                    <td>
-                      {/* {snapshot.characterClass} */}
-                      <StyledTooltip
-                        texts={[`${snapshot.characterClass}`]}
-                        placement="left"
-                      >
-                        <Image
-                          src={`/images/classes/${snapshot.characterClass}_avatar.png`}
-                          alt={snapshot.characterClass}
-                          width={39}
-                          height={30}
-
-                          // src={`../../../../common/images/classes/${snapshot.characterClass}_avatar.png`}
-                        />
-                      </StyledTooltip>
-                    </td>
+                    <td>{snapshot.characterClass}</td>
                     <td>{snapshot.level}</td>
                   </tr>
                 </>
