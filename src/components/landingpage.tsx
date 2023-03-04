@@ -32,7 +32,7 @@ export default function LandingPage() {
   ];
   const characterProfileImages = [
     {
-      path: "/images/landingpage/char_profile_002_inside_SteelMage_16x9.png",
+      path: "/images/landingpage/char_profile_004_inside_16x9.png",
       text: "Use Snapshots to track your progress throughout the league on each character ",
       id: "CharProfile2",
     },
