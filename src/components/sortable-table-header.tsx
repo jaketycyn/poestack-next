@@ -70,7 +70,7 @@ export default function SortableTableHeader({
   }
 
   return (
-    <thead className="bg-surface-primary-variant border border-slate-800 flex-1">
+    <thead className="bg-surface-primary-variant border border-slate-800 ">
       <tr>
         {columns.map((column) => (
           <th className="pl-2 " key={column.key}>

@@ -284,11 +284,11 @@ export default function CharactersByUser() {
               />
             </div>
             {isCurrentUser ? (
-              <div className=" flex justify-center  w-full">
+              <div className="flex justify-center w-full ">
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-slate-500 mb-2 mt-2 rounded-lg group-hover:blur-sm w-32 "></div>
+                  <div className="absolute inset-0 w-32 mt-2 mb-2 rounded-lg bg-slate-500 group-hover:blur-sm "></div>
                   <button
-                    className="relative mb-2 mt-2"
+                    className="relative mt-2 mb-2"
                     onClick={() => {
                       takeSnapshot();
                     }}
@@ -305,7 +305,7 @@ export default function CharactersByUser() {
           </StyledCard>
 
           <StyledCard title="Atlas Passives">
-            <div className="flex flex-col space-y-2 mx-40 bg-surface-primary-variant">
+            <div className="flex flex-col mx-40 space-y-2 bg-surface-primary-variant">
               <LeagueSelect />
               <AtlasPassivesTree
                 version={"3.20"}
@@ -348,11 +348,10 @@ function CharactersByUserTable({
             columnDirections={columnDirections}
             onSortChange={onSortChange}
           />
-
           <tbody className="">
             {characters.map((snapshot) => (
               <tr
-                className="hover:bg-skin-primary border-y-2 border-slate-700/50 h-12"
+                className="hover:bg-skin-primary border-y-2 border-slate-700/50 h-14"
                 key={snapshot.id}
               >
                 <td>
@@ -387,12 +386,12 @@ function CharactersByUserTable({
                   </ul>
                 </td>
 
-                <td className="relative flex justify-center h-full ">
+                <td className="flex items-center justify-center mr-4 h-14">
                   {snapshot.mainSkillKey ? (
                     <li className="list-none">
                       <StyledSkillImageTooltip
                         texts={[`${snapshot.mainSkillKey}`]}
-                        placement="left"
+                        placement="top"
                         title="Skills"
                         imageString={snapshot.mainSkillKey}
                         className="bg-slate-800"
@@ -402,7 +401,7 @@ function CharactersByUserTable({
                             snapshot.mainSkillKey
                           )}.png`}
                           alt=""
-                          width={39}
+                          width={30}
                           height={30}
                         />
                       </StyledSkillImageTooltip>
@@ -416,9 +415,9 @@ function CharactersByUserTable({
                     </div>
                   ) : null}
                 </td>
-                <td className="flex justify-center items-center ">
+                <td className="grid h-full grid-cols-2">
                   {snapshot.totalValueDivine ? (
-                    <div className="grid grid-cols-2 my-auto">
+                    <div className="items-center justify-center ">
                       <div>{+snapshot.totalValueDivine.toFixed(1)}</div>
                       <div>
                         <Image src={DIV_ICON} alt={""} width={30} height={30} />
