@@ -110,7 +110,7 @@ export default function LandingPage() {
                 you for your interest in PoeStack.
               </p>
               <div className="relative group">
-                <div className="absolute inset-0 bg-red-700 mb-2 mt-14 rounded-lg blur-sm  group-hover:blur-md"></div>
+                <div className="absolute inset-0 mb-2 bg-red-700 rounded-lg mt-14 blur-sm group-hover:blur-md"></div>
                 <button className="relative mb-2 mt-14">
                   <a
                     href="#section2"
@@ -213,7 +213,7 @@ export default function LandingPage() {
                       <ul className="flex flex-row justify-center space-x-10 ">
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-green-600 w-28 mb-2 mt-14 rounded-lg blur-sm group-hover:blur-md "></div>
+                            <div className="absolute inset-0 mb-2 bg-green-600 rounded-lg w-28 mt-14 blur-sm group-hover:blur-md "></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href={`/poe/characters?league=${league}`}
@@ -226,7 +226,7 @@ export default function LandingPage() {
                         </li>
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-blue-800 w-28 mb-2 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
+                            <div className="absolute inset-0 mb-2 bg-blue-800 w-28 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href="/poe/tutorial"
@@ -310,7 +310,7 @@ export default function LandingPage() {
                       <ul className="flex flex-row justify-center space-x-10 ">
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-green-600 w-28 mb-2 mt-14 rounded-lg blur-sm group-hover:blur-md "></div>
+                            <div className="absolute inset-0 mb-2 bg-green-600 rounded-lg w-28 mt-14 blur-sm group-hover:blur-md "></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href={`/poe/characters/${profile?.userId}`}
@@ -323,7 +323,7 @@ export default function LandingPage() {
                         </li>
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-blue-800 w-28 mb-2 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
+                            <div className="absolute inset-0 mb-2 bg-blue-800 w-28 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href="/poe/tutorial"
@@ -395,7 +395,7 @@ export default function LandingPage() {
                       <ul className="flex flex-row justify-center space-x-10 ">
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-green-600 w-28 mb-2 mt-14 rounded-lg blur-sm group-hover:blur-md "></div>
+                            <div className="absolute inset-0 mb-2 bg-green-600 rounded-lg w-28 mt-14 blur-sm group-hover:blur-md "></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href="/poe/stash/snapshot/profiles"
@@ -408,7 +408,7 @@ export default function LandingPage() {
                         </li>
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-blue-800 w-28 mb-2 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
+                            <div className="absolute inset-0 mb-2 bg-blue-800 w-28 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href="/poe/tutorial"
@@ -476,7 +476,7 @@ export default function LandingPage() {
                       <ul className="flex flex-row justify-center space-x-10 ">
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-green-600 w-28 mb-2 mt-14 rounded-lg blur-sm group-hover:blur-md "></div>
+                            <div className="absolute inset-0 mb-2 bg-green-600 rounded-lg w-28 mt-14 blur-sm group-hover:blur-md "></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href={`/poe/economy/${league}?tag=currency`}
@@ -489,7 +489,7 @@ export default function LandingPage() {
                         </li>
                         <li>
                           <div className="relative group">
-                            <div className="absolute inset-0 bg-blue-800 w-28 mb-2 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
+                            <div className="absolute inset-0 mb-2 bg-blue-800 w-28 mt-14 rounded-xl blur-sm group-hover:blur-md"></div>
                             <button className="relative mb-2 mt-14">
                               <Link
                                 href="/poe/tutorial"
@@ -532,8 +532,8 @@ function StyledCarousel({ images }) {
 
   return (
     <div className="relative">
-      <div className="absolute inset-0 rounded-lg mb-16 lg:mb-0 lg:mx-10 xl:pt-4 lg:bg-white/80 blur-sm"></div>
-      <div className="relative rounded-lg lg:mx-10  xl:pt-4 bg-surface-secondary">
+      <div className="absolute inset-0 mb-16 rounded-lg lg:mb-0 lg:mx-10 xl:pt-4 lg:bg-white/80 blur-sm"></div>
+      <div className="relative rounded-lg lg:mx-10 xl:pt-4 bg-surface-secondary">
         <div className="grid grid-cols-[_1fr,_20fr,_1fr]">
           {/* <div className="relative bg-surface-primary"> */}
           <AiOutlineLeft
