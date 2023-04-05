@@ -15,7 +15,7 @@ import SortableTableHeader, {
   SortableTableColumns,
 } from "@components/sortable-table-header";
 import { GeneralUtils } from "@utils/general-util";
-import { CustomLadderGroup, GenericAggregation } from "@generated/graphql";
+import { GenericAggregation } from "@generated/graphql";
 import { useRouter } from "next/router";
 import { usePoeStackAuth } from "@contexts/user-context";
 import { DIV_ICON } from "@components/currency-value-display";
@@ -29,7 +29,7 @@ import {
   LadderVectorUtil,
 } from "@utils/ladder-vector";
 import CharacterAggregationDisplay2 from "@components/character-aggregation-display-2";
-import { gql, useQuery } from "@apollo/client";
+import StyledLoading from "@components/styled-loading";
 
 /**
  * Columns used by the characters table.
@@ -78,20 +78,13 @@ export default function Characters() {
 
   const [localSearchString, setLocalSearchString] = useState<string>("");
 
-  const [timemachineDate, setTimemachineDate] = useState<Date | null>(null);
-
   const [baseVector, setBaseVector] = useState<LadderVector | null>(null);
 
   const [displayVector, setDisplayVector] = useState<LadderVector | null>(null);
   useEffect(() => {
     if (league) {
-      if (timemachineDate) {
-        timemachineDate.setUTCHours(0, 0, 0, 0);
-      }
       fetch(
-        `https://poe-stack-poe-ladder-vectors.nyc3.digitaloceanspaces.com/${league}/${
-          !!timemachineDate ? timemachineDate?.toISOString() : "current"
-        }.json`
+        `https://poe-stack-poe-ladder-vectors.nyc3.digitaloceanspaces.com/${league}/current.json`
       )
         .then((v) => {
           if (v.ok) {
@@ -136,10 +129,10 @@ export default function Characters() {
   useEffect(() => {
     if (baseVector) {
       setDisplayVector(
-        LadderVectorUtil.executeSearch(baseVector, router.query, ladderGroup)
+        LadderVectorUtil.executeSearch(baseVector, router.query)
       );
     }
-  }, [baseVector, router.query, ladderGroup]);
+  }, [baseVector, router.query]);
 
   function toggleAggregationSearch(searchKey: string, rowKey: string) {
     let nextQuery: string[] = [router.query[searchKey] ?? ""]
@@ -175,9 +168,7 @@ export default function Characters() {
             onValueChange={(e) => {
               setLocalSearchString(e);
             }}
-            onDateChange={(e) => {
-              setTimemachineDate(e);
-            }}
+            onDateChange={(e) => {}}
             onLeagueChange={(e) => {}}
           />
         </div>
