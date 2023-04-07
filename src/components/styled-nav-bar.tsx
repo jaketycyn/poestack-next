@@ -203,35 +203,42 @@ function DesktopNavBar() {
   const { profile } = usePoeStackAuth();
   const { league } = usePoeLeagueCtx();
 
-  const [navigation, setNavigation] = useState([
+  const [navigation, setNavigation] = useState<any[]>([
     {
       name: "Economy",
       href: `/poe/economy/${league}?tag=currency`,
       current: false,
+      children: "",
     },
     {
       name: "Characters",
       href: `/poe/characters?league=${league}`,
-
       current: false,
-      // children: [
-      //   { name: "child1", href: "#" },
-      //   { name: "child2", href: "#" },
-      //   { name: "child3", href: "#" },
-      // ],
+      children: "",
     },
     {
       name: "My Characters",
       href: `/poe/characters/${profile?.userId}`,
       current: false,
+      children: "",
       // children: [
       //   { name: "child1", href: "#" },
       //   { name: "child2", href: "#" },
       //   { name: "child3", href: "#" },
       // ],
     },
-    { name: "Stash", href: "/poe/stash/snapshot/profiles", current: false },
-    { name: "Atlas", href: `/poe/atlas?league=${league}`, current: false },
+    {
+      name: "Stash",
+      href: "/poe/stash/snapshot/profiles",
+      current: false,
+      children: "",
+    },
+    {
+      name: "Atlas",
+      href: `/poe/atlas?league=${league}`,
+      current: false,
+      children: "",
+    },
   ]);
 
   const discordNav = {
@@ -262,7 +269,7 @@ function DesktopNavBar() {
               <ul role="list" className="-mx-2 space-y-1">
                 {navigation.map((item) => (
                   <li key={item.name}>
-                    {!item.children ? (
+                    {!item ? (
                       <Link
                         href={item.href}
                         className={`
@@ -304,10 +311,7 @@ function DesktopNavBar() {
                                     as="a"
                                     href={subItem.href}
                                     className={
-                                      (subItem.current
-                                        ? "bg-gray-50"
-                                        : "hover:bg-gray-50",
-                                      "block rounded-md py-2 pr-2 pl-9 text-sm leading-6 text-gray-400")
+                                      "block rounded-md py-2 pr-2 pl-9 text-sm leading-6 text-gray-400"
                                     }
                                   >
                                     {subItem.name}

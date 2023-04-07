@@ -9,9 +9,7 @@ import {
 } from "@generated/graphql";
 import { useRouter } from "next/router";
 import StyledCard from "@components/styled-card";
-import StyledButton from "@components/styled-button";
 import _ from "lodash";
-import LoadingIndicator from "@components/loading-indicator";
 import SortableTableHeader, {
   SortableTableColumns,
   SortableTableHeaderProps,

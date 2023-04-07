@@ -6,7 +6,6 @@ import CharacterAggregationDisplay from "@components/character-aggregation-displ
 import StyledCard from "@components/styled-card";
 import StyledDatepicker from "@components/styled-datepicker";
 import StyledInput from "@components/styled-input";
-import StyledLoading from "@components/styled-loading";
 import {
   StyledTooltip,
   StyledSkillImageTooltip,
